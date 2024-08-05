@@ -1,0 +1,99 @@
+/**
+ * CSS files with the .module.css suffix will be treated as CSS modules
+ * and scoped locally.
+ */
+
+.heroBanner {
+  padding: 4rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.heroContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50%;
+  margin: 0 auto;
+  text-align: center;
+  --ifm-button-padding-horizontal: 1rem;
+}
+.heroContent > h1 {
+  font-size: 4rem;
+}
+.heroContent > p {
+  font-size: 1.2rem;
+}
+
+.heroContent code {
+  padding-left: 3rem;
+  padding-right: 3rem;
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+}
+
+.btn {
+  margin-right: 10px;
+}
+.btn:last-child {
+  margin-right: 0;
+}
+
+.logo {
+  width: 200px;
+}
+
+.relationContent {
+  background: var(--ifm-color-emphasis-100);
+  border-radius: 0.5rem;
+  padding: 3rem 3rem;
+  color: var(--ifm-color-emphasis-700);
+  width: 56%;
+  margin: 0 auto;
+}
+[data-theme='dark'] .relationContent {
+  background: var(--ifm-color-emphasis-200);
+}
+
+.quota {
+  font-size: 2rem;
+  line-height: 2rem;
+}
+
+@media screen and (max-width: 996px) {
+  .heroBanner {
+    padding: 1rem;
+  }
+  .heroContent {
+    width: 90%;
+  }
+  .heroContent > h1 {
+    font-size: 3.4rem;
+  }
+  .logo {
+    display: none;
+  }
+  .relation {
+    width: 90%;
+  }
+  .codeExample {
+    display: none;
+  }
+  .relationContent {
+    padding: 1rem 2rem;
+    width: auto;
+  }
+}
+
+.announcement {
+  margin-top: 2rem;
+  background: var(--ifm-color-emphasis-100);
+  color: var(--ifm-color-primary);
+  padding: 0.4rem 2rem;
+  border-radius: 10rem;
+  font-weight: 800;
+  font-size: 0.9rem;
+}
