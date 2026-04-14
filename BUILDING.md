@@ -66,10 +66,16 @@ const example = 'code'
 
 ### Setup
 
-1. Install dependencies:
+Install dependencies:
 
 ```bash
 pnpm install
+```
+
+### Updating dependencies
+
+```bash
+pnpm update --latest
 ```
 
 ## Development

@@ -92,3 +92,18 @@ See [this discussion](https://github.com/emsesp/EMS-ESP32/discussions/2025)
 (answer from [MichaelDvP](https://github.com/MichaelDvP))
 
 That will not work. The Boiler works with `selflowtemp` as target and modulates the burner to hold the `flowtemp`. If `flowtemp` is higher than selected on min burn power, the boiler shut off, waits the min period and `flowtemp` is down to `selflowtemp` -   hysteresis and starts again. Raising the `burnminpower` will only result in more on/off cycles in mild conditions.
+
+## Upgrading the firmware
+
+When upgrading or downgrading between EMS-ESP versions, EMS-ESP will handle any migrations of the settings to maintain compatibility with the new version installed.
+
+Always read the [ChangeLog](Version-Release-History.md) for the release notes and notes of any breaking changes before upgrading.
+
+:::warning
+### Migrating to v3.9
+:::
+
+In version 3.9 of the EMS-ESP firmware we have optimized the ESP32 core and used a more efficient File System. This unfortunately means that you will need to manually upload the settings after the install is complete. It is important that you first download a backup of your settings and customizations before initiating the upgrade. This can be done from the Download/Upload page in the WebUI and it will create one human readable JSON file. 
+
+When EMS-ESP boots it will be reset to the default factory settings and you will then need to manually upload your saved settings by selecting the backup JSON file you just created and uploading on the Download/Upload page. If you are using WiFi connect to the EMS-ESP Access Point and open a browser to http://192.168.4.1.
+

@@ -82,7 +82,7 @@ const config = {
 
   // Enable faster builds and v4 future flags
   future: {
-    experimental_faster: true,
+    faster: true,
     v4: true,
   },
 

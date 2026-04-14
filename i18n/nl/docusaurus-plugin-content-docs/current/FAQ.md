@@ -58,7 +58,7 @@ Lees meer over deze discussies:
 
 - [Smart control a heating system with HA?](https://github.com/emsesp/EMS-ESP32/discussions/965)
 - [Thermostat emulation](https://github.com/emsesp/EMS-ESP32/issues/151)
-- [Changing the boiler heating directly](tips-and-tricks#verwarming-van-de-ketel-regelen)
+- [Changing the boiler heating directly](tips-and-tricks#de-verwarming-van-de-ketel-regelen)
 - [Implementing a smart thermostat (using SAT)](https://github.com/emsesp/EMS-ESP32/issues/2103)
 
 ## Wat zijn busprotocollen en Tx-modi?
@@ -88,3 +88,17 @@ Zie [this discussion](https://github.com/emsesp/EMS-ESP32/discussions/2025)
 (antwoord van [MichaelDvP](https://github.com/MichaelDvP))
 
 Dat werkt niet. De ketel werkt met `selflowtemp` als doel en moduleert de brander om de `flowtemp` vast te houden. Als `flowtemp` hoger is dan het geselecteerde min. brandvermogen, schakelt de ketel uit, wacht de min. periode en `flowtemp` is gedaald tot `selflowtemp` - hysterese en begint opnieuw. Het verhogen van `burnminpower` zal alleen resulteren in meer on/off cycli in milde omstandigheden.
+
+## De firmware upgraden
+
+Bij het upgraden of downgraden tussen EMS-ESP-versies, zal EMS-ESP eventuele migraties van de instellingen afhandelen om compatibiliteit te behouden met de nieuwe geïnstalleerde versie.
+
+Lees altijd de [ChangeLog](Version-Release-History.md) voor de release-opmerkingen en opmerkingen over eventuele wijzigingen voordat u een upgrade uitvoert.
+
+:::warning ### Migreren naar v3.9
+:::
+
+In versie 3.9 van de EMS-ESP-firmware hebben we de ESP32-kern geoptimaliseerd en een efficiënter bestandssysteem gebruikt. Dit betekent helaas dat u de instellingen handmatig moet uploaden nadat de installatie is voltooid. Het is belangrijk dat je eerst een back-up van je instellingen en aanpassingen downloadt voordat je de upgrade start. Dit kan worden gedaan vanaf de pagina Download/Upload in de WebUI en er wordt een voor mensen leesbaar JSON-bestand aangemaakt.
+
+Wanneer EMS-ESP opstart zal het worden gereset naar de standaard fabrieksinstellingen en je moet dan handmatig je opgeslagen instellingen uploaden door het back-up JSON bestand te selecteren dat je zojuist hebt gemaakt en te uploaden op de Download/Upload pagina. Als je WiFi gebruikt, maak dan verbinding met het EMS-ESP Access Point en open een browser naar http://192.168.4.1.
+

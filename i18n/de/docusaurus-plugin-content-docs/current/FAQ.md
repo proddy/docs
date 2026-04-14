@@ -6,9 +6,9 @@ description: Common questions and answers about EMS-ESP including factory reset,
 
 # FAQ
 
-## Wie setzt man das EMS-ESP auf die Werkseinstellungen zurück?
+## Wie wird das EMS-ESP auf die Werkseinstellungen zurückgesetzt?
 
-Wenn Sie eine GPIO-Taste konfiguriert haben (standardmäßig auf allen BBQKees-Platinen aktiviert), können Sie diese 10 Sekunden lang drücken und dann loslassen, um einen Werksreset durchzuführen. Das EMS-ESP wird im Access Point Modus neu gestartet.
+Wenn Sie eine GPIO-Taste konfiguriert haben (standardmäßig auf allen BBQKees-Platinen aktiviert), führt das Drücken dieser Taste für 10 Sekunden und das Loslassen einen Werksreset durch. Das EMS-ESP wird im Access Point Modus neu gestartet.
 
 ## Was ist ein EMS-Telegramm?
 
@@ -29,7 +29,7 @@ Die beste Übersicht über bekannte Telegramme ist die von [Norberts1](https://g
 
 Für verschiedene brands/devices verwendet Bosch manchmal unterschiedliche Ausdrücke für denselben Wert. Vielleicht wechselnde Entwickler oder sie wollen das Reverse Engineering erschweren!
 
-Wenn Sie eine Einstellung suchen, loggen Sie die Telegramme für das Gerät (log all oder watch &lt;device-id&gt;) und ändern Sie die Einstellung am Thermostat auf andere states/values. Suchen Sie dann im Protokoll nach diesen Werten. Wenn Sie nach einer Messung suchen, protokollieren Sie das Gerät und sehen Sie sich den Wert auf dem Thermostat an und warten Sie auf Änderungen, notieren Sie old/new-Werte und Zeit. Prüfen Sie dann das Log auf diesen Zeitstempel (oder 10 sec / 1 min später) und den Wert innerhalb eines Telegramms. Am besten mehrere changes/values, um sicher zu sein.
+Wenn Sie eine Einstellung suchen, loggen Sie die Telegramme für das Gerät (log all oder watch &lt;device-id&gt;) und ändern Sie die Einstellung am Thermostat auf andere states/values. Suchen Sie dann im Protokoll nach diesen Werten. Wenn Sie nach einer Messung suchen, protokollieren Sie das Gerät und sehen Sie sich den Wert auf dem Thermostat an und warten Sie auf Änderungen, notieren Sie old/new-Werte und Zeit. Prüfen Sie dann das Protokoll auf diesen Zeitstempel (oder 10 sec / 1 min später) und den Wert innerhalb eines Telegramms. Am besten mehrere changes/values, um sicher zu sein.
 
 ## Kann EMS-ESP einen Thermostat simulieren?
 
@@ -88,3 +88,17 @@ Siehe [this discussion](https://github.com/emsesp/EMS-ESP32/discussions/2025)
 (Antwort von [MichaelDvP](https://github.com/MichaelDvP))
 
 Das wird nicht funktionieren. Der Kessel arbeitet mit `selflowtemp` als Ziel und moduliert den Brenner, um den `flowtemp` zu halten. Wenn `flowtemp` höher ist als die gewählte Mindestbrennleistung, schaltet der Kessel ab, wartet die Mindestzeit ab und `flowtemp` sinkt auf `selflowtemp` - Hysterese und startet erneut. Eine Erhöhung von `burnminpower` führt nur bei milden Bedingungen zu mehr on/off-Zyklen.
+
+## Aktualisieren der Firmware
+
+Beim Upgrade oder Downgrade zwischen EMS-ESP-Versionen übernimmt EMS-ESP die Migration der Einstellungen, um die Kompatibilität mit der neu installierten Version zu gewährleisten.
+
+Lesen Sie immer die [ChangeLog](Version-Release-History.md) für die Versionshinweise und Hinweise auf alle Änderungen, bevor Sie ein Upgrade durchführen.
+
+:::warning ### Umstellung auf v3.9
+:::
+
+In Version 3.9 der EMS-ESP-Firmware haben wir den ESP32-Kern optimiert und ein effizienteres Dateisystem verwendet. Dies bedeutet leider, dass Sie die Einstellungen nach Abschluss der Installation manuell hochladen müssen. Es ist wichtig, dass Sie zuerst ein Backup Ihrer Einstellungen und Anpassungen herunterladen, bevor Sie das Upgrade starten. Dies kann über die Seite Download/Upload in der WebUI erfolgen und erstellt eine für Menschen lesbare JSON-Datei.
+
+Wenn der EMS-ESP hochfährt, wird er auf die werkseitigen Standardeinstellungen zurückgesetzt und Sie müssen dann Ihre gespeicherten Einstellungen manuell hochladen, indem Sie die soeben erstellte Backup-JSON-Datei auswählen und auf der Seite Download/Upload hochladen. Wenn Sie WiFi verwenden, verbinden Sie sich mit dem EMS-ESP Access Point und öffnen Sie einen Browser auf http://192.168.4.1.
+
