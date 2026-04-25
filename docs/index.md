@@ -21,6 +21,8 @@ sidebar_class_name: hidden
 image: /media/screenshot/main-screen.png
 ---
 
+import LatestReleases from '@site/src/components/LatestReleases';
+
 <div style={{display: 'flex', alignItems: 'center', gap: '2rem', marginBottom: '2rem', flexWrap: 'wrap'}}>
 
 <div style={{flex: '0 0 auto'}}>
@@ -107,8 +109,7 @@ Use the notification service to send alerts and warnings.
 
 [![donate](https://img.shields.io/badge/donate-PayPal-blue.svg)](https://www.paypal.com/paypalme/prderbyshire/2)
 
-- **Stable:** [v3.8.1](https://github.com/emsesp/EMS-ESP32/releases/tag/v3.8.1)
-- **Development:** [v3.8.2](https://github.com/emsesp/EMS-ESP32/releases/tag/latest)
+<LatestReleases />
 
 ## 📱 Live Demo
 
