@@ -16,11 +16,7 @@ This table shows how device types are mapped to server unit identifiers.
 | SOLAR            | 8               |
 | HEATPUMP         | 9               |
 | GATEWAY          | 10              |
-| SWITCH    
-
-
-
-      | 11              |
+| SWITCH           | 11              |
 | CONTROLLER       | 12              |
 | CONNECT          | 13              |
 | ALERT            | 14              |
