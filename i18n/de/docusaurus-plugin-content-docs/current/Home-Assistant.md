@@ -28,15 +28,16 @@ Sie können dann jedes dieser Geräte über die Schaltfläche "Zu Lovelace hinzu
 alias: EMS-ESP booted
 description: Notify when EMS-ESP boots
 triggers:
-  - topic: ems-esp/status
-    payload: online
-    trigger: mqtt
-conditions: []
+  - trigger: mqtt
+    topic: ems-esp/heartbeat
+conditions:
+  - condition: template
+    value_template: '{{ trigger.payload_json.uptime_sec | int(9999) < 60 }}'
 actions:
   - data:
       message: EMS-ESP
       title: EMS-ESP has booted
-    action: notify.mobile_app_iphone
+    action: notify.notify
 mode: single
 ```
 

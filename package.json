@@ -18,7 +18,7 @@
     "translate-ui": "node scripts/translate-ui.js"
   },
   "dependencies": {
-    "@docsearch/core": "^5.0.5",
+    "@docsearch/core": "^5.1.0",
     "@docusaurus/core": "^3.10.2",
     "@docusaurus/faster": "^3.10.2",
     "@docusaurus/plugin-google-gtag": "^3.10.2",
@@ -31,8 +31,8 @@
     "clsx": "^2.1.1",
     "copy-text-to-clipboard": "^3.2.2",
     "prism-react-renderer": "^2.4.1",
-    "react": "^19.2.8",
-    "react-dom": "^19.2.8"
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0"
   },
   "devDependencies": {
     "@docusaurus/module-type-aliases": "^3.10.2",
@@ -51,7 +51,7 @@
     ]
   },
   "engines": {
-    "node": ">=24.0"
+    "node": ">=26.0"
   },
-  "packageManager": "pnpm@11.12.0+sha512.820a6fbd0d9f04c226638002aead1e45340a9139dd5dc077c1d83ef44aa2481c8eb6637b4c9aa696a3c7e35ba818e49cf27213e5f2b91138d09b7a3e26e898ba"
+  "packageManager": "pnpm@12.4.2"
 }
