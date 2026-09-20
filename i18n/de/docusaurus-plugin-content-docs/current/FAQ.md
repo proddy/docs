@@ -109,11 +109,3 @@ Bei einem Upgrade oder Downgrade zwischen verschiedenen EMS-ESP-Versionen übern
 
 Lesen Sie vor dem Upgrade stets die [ChangeLog](Version-Release-History.md), um sich über die Versionshinweise und etwaige kompatibilitätsbeeinträchtigende Änderungen zu informieren.
 
-:::warning
-### Umstellung auf Version 3.9
-:::
-
-In Version 3.9 der EMS-ESP-Firmware haben wir den ESP32-Kern optimiert und ein effizienteres Dateisystem verwendet. Das bedeutet leider, dass Sie die Einstellungen nach Abschluss der Installation manuell hochladen müssen. Es ist wichtig, dass Sie vor dem Start des Upgrades zunächst eine Sicherungskopie Ihrer Einstellungen und Anpassungen herunterladen. Dies kann über die Seite Download/Upload in der WebUI erfolgen, wodurch eine für Menschen lesbare JSON-Datei erstellt wird. 
-
-Beim Hochfahren des EMS-ESP wird das Gerät auf die werkseitigen Standardeinstellungen zurückgesetzt. Sie müssen dann Ihre gespeicherten Einstellungen manuell hochladen, indem Sie die soeben erstellte JSON-Sicherungsdatei auswählen und auf der Seite Download/Upload hochladen. Wenn Sie WLAN verwenden, stellen Sie eine Verbindung zum EMS-ESP-Access-Point her und öffnen Sie in einem Browser die Seite http://192.168.4.1.
-
